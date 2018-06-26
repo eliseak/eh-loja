@@ -46,9 +46,9 @@ app.get('/clientes', (req, res) => {
 })
 
 // LER o cliente no banco por EMAIL
-app.get('/cliente/:nome', (req, res) => {
+app.get('/cliente/:id', (req, res) => {
     let query = {
-        nome: req.params.nome
+        _id: ObjectID(req.params.id)
     }
 
     req.db.collection('clientes').findOne(query, (error, data) => {
