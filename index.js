@@ -45,6 +45,21 @@ app.get('/clientes', (req, res) => {
     })
 })
 
+// LER o cliente no banco por EMAIL
+app.get('/clientes/:email', (req, res) => {
+    let query = {
+        email: req.params.email
+    }
+    req.db.collection('clientes').findOne(query, (error, data) => {
+        if (error){
+            res.status(500).send();
+            return;
+        }
+        
+        res.send(data);
+    })
+})
+
 // Primeira porta para o Heroku, caso não encontrado: utiliza porta 3000
 app.listen(process.env.PORT||3000, () => console.log('Aplicacao iniciada'));
 
