@@ -1,0 +1,6 @@
+Rest
+
+POST - criar um novo cliente
+PUT - alterar informação de um cliente já cadastrado
+GET - ler as informações de um cliente já cadastrado 
+DELETE - deletar cliente
