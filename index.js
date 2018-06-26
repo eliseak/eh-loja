@@ -34,6 +34,17 @@ app.post('/cliente', (req, res) => {
     })
 });
 
+// LER todos os clientes no banco
+app.get('/clientes', (req, res) => {
+    req.db.collection('clientes').find().toArray((error, data) => {
+        if (error){
+            res.status(500).send();
+            return;
+        }
+        res.send(data);
+    })
+})
+
 // Primeira porta para o Heroku, caso não encontrado: utiliza porta 3000
 app.listen(process.env.PORT||3000, () => console.log('Aplicacao iniciada'));
 
