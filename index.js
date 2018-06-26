@@ -50,14 +50,9 @@ app.get('/clientes/:email', (req, res) => {
     let query = {
         email: req.params.email
     }
-    req.db.collection('clientes').findOne(query, (error, data) => {
-        if (error){
-            res.status(500).send();
-            return;
-        }
-        
-        res.send(data);
-    })
+
+    res.send(req.params.email);
+
 })
 
 // Primeira porta para o Heroku, caso não encontrado: utiliza porta 3000
